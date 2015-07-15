@@ -1,12 +1,14 @@
 $(document).ready(function(){
     console.log("game ready")
     // game init
+      $(".msg").append("It's Always Sunny in Philadelphia Triva")
       $(".response").hide();
       $("#new").hide();
       var questions = ["The 'Gang' consists of Charlie, Dee, Mac, Dennis, and Frank", "Kitten Mittons", "Charlie's favorite meal is milksteak","last question"]
       var answers = ['true', 'false','true']
       var selections = []
       var i = 0;
+      var numCorrect = 0;
    // start game
     $("#start").on("click", function(){
        $("#start").hide();
