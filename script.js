@@ -2,22 +2,32 @@ $(document).ready(function(){
     console.log("game ready")
     // game init
       $(".response").hide();
+      $("#new").hide();
       var questions = ["The 'Gang' consists of Charlie, Dee, Mac, Dennis, and Frank", "Kitten Mittons", "Charlie's favorite meal is milksteak","last question"]
       var answers = ['true', 'false','true']
       var selections = []
-      var index = 0;
+      var i = 0;
    // start game
-    $("#clickStart").on("click", function(){
-       $(".start").hide();
-       $(".questions").append(questions[index])
+    $("#start").on("click", function(){
+       $("#start").hide();
+       $(".questions").append(questions[i])
        $(".response").show()
-    }) // end start event
+    })
     // click event for true or false
     $(".response").children().on("click", function(){
        var result = $(this).html()
        selections.push(result)
-       index ++
-       $(".questions").empty();
-       $(".questions").append(questions[index])
+          i++
+       if (i < questions.length ){
+         $(".questions").empty();
+         $(".questions").append(questions[i])
+      } else {
+         $(".questions").empty();
+         $(".response").hide()
+         $("#new").show()
+      }
+    })
+    $("#new").on("click", function(){
+      window.location.reload(false);
     })
 })
